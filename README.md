@@ -1,1 +1,2 @@
-# Lista7-Desafio-de-Matrizes-em-JavaScript
+# Lista-07
+Uma lista de exercícios estrutura de dados matriz

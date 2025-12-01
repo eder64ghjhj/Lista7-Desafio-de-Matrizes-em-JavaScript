@@ -1,811 +1,327 @@
-const botao01 = document.querySelector("#botao01")
-const botao02 = document.querySelector("#botao02")
-const botao03 = document.querySelector("#botao03")
-const botao04 = document.querySelector("#botao04")
-const botao05 = document.querySelector("#botao05")
-const botao06 = document.querySelector("#botao06")
-const botao07 = document.querySelector("#botao07")
-const botao08 = document.querySelector("#botao08")
-const botao09 = document.querySelector("#botao09")
-const botao10 = document.querySelector("#botao10")
-const botao11 = document.querySelector("#botao11")
-const botao12 = document.querySelector("#botao12")
-const botao13 = document.querySelector("#botao13")
-const botao14 = document.querySelector("#botao14")
-const botao15 = document.querySelector("#botao15")
-const res = document.querySelector('.res')
+const btnEx01 = document.querySelector("#ex01")
+const btnEx02 = document.querySelector("#ex02")
+const btnEx03 = document.querySelector("#ex03")
+const btnEx04 = document.querySelector("#ex04")
+const btnEx05 = document.querySelector("#ex05")
+const btnEx06 = document.querySelector("#ex06")
+const btnEx07 = document.querySelector("#ex07")
+const btnEx08 = document.querySelector("#ex08")
+const btnEx09 = document.querySelector("#ex09")
+const btnEx10 = document.querySelector("#ex10")
+const btnEx11 = document.querySelector("#ex11")
+const btnEx12 = document.querySelector("#ex12")
+const btnEx13 = document.querySelector("#ex13")
+const btnEx14 = document.querySelector("#ex14")
+const btnEx15 = document.querySelector("#ex15")
 
-function limparDiv() {
-    res.innerHTML = ""
+function ex01() {
+    let matriz = [];
+
+    for (let i = 0; i < 3; i++) {
+        matriz[i] = [];
+        for (let j = 0; j < 3; j++) {
+            matriz[i][j] = Number(prompt(`Matriz[${i}][${j}]:`));
+        }
+    }
+
+    console.log(matriz);
+
 }
+btnEx01.addEventListener('click', ex01)
 
-const exercicio01 = botao01.addEventListener('click', () => {
+function ex02() {
+    let soma = 0;
 
-    limparDiv()
-
-    /* Faça um programa que leia uma matriz 3x3 de números inteiros 
-   e exiba a matriz na tela. 
-*/
-
-    // 1. Vamos criar o "cesto" principal da matriz
-    let matriz = []
-    const TOTAL_LINHAS = 3
-    const TOTAL_COLUNAS = 3
-
-    // --- FASE 1: LEITURA DOS DADOS ---
-    res.innerHTML = "Digite os valores para a matriz:<br>" // Mensagem inicial
-
-    // O Loop de FORA controla as LINHAS (de 0 a 2)
-    for (let linha = 0; linha < TOTAL_LINHAS; linha++) {
-
-        // 2. Crie um "vetor-linha" vazio para esta linha
-        let linhaAtual = []
-
-        // O Loop de DENTRO controla as COLUNAS (de 0 a 2)
-        for (let coluna = 0; coluna < TOTAL_COLUNAS; coluna++) {
-
-            // 3. Peça o número ao usuário
-            let numero = parseInt(prompt(`Digite o valor para [Linha ${linha}][Coluna ${coluna}]:`))
-
-            // 4. Adicione o número no "vetor-linha"
-            linhaAtual.push(numero)
-        }
-
-        // 5. Adicione a linha preenchida na matriz principal
-        matriz.push(linhaAtual)
-    }
-
-    // 6. Neste ponto, a variável 'matriz' está completa!
-    // (Seu console.log(matriz) mostraria algo como: [[1,2,3], [4,5,6], [7,8,9]])
-
-
-    // --- FASE 2: EXIBIÇÃO DOS DADOS ---
-    res.innerHTML = "Sua Matriz 3x3:<br>"
-
-    // 7. Precisamos de OUTRO loop aninhado para LER a matriz
-    for (let linha = 0; linha < TOTAL_LINHAS; linha++) {
-
-        let linhaEmTexto = "" // String para montar a linha antes de exibir
-
-        for (let coluna = 0; coluna < TOTAL_COLUNAS; coluna++) {
-
-            // 8. Pegue o número da matriz
-            let numero = matriz[linha][coluna]
-
-            // 9. Adicione o número à string da linha
-            linhaEmTexto += numero + " "
-        }
-
-        // 10. Exiba a linha inteira e pule para a próxima
-        res.innerHTML += linhaEmTexto + "<br>"
-    }
-
-})
-
-const exercicio02 = botao02.addEventListener('click', () => {
-
-    limparDiv()
-
-    /* Escreva um programa que leia uma matriz 2x2 de números inteiros e calcule a soma de todos os elementos. */
-
-    let matriz = []
-    let totalLinhas = 2
-    let totalColunas = 2
-    let soma = 0
-    let somaTotal = 0
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        linhaAtual = []
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            let numero = parseInt(prompt(`Digite o número da linha ${linha} e coluna ${coluna}: `))
-
-
-
-            linhaAtual.push(numero)
-
-        }
-
-        matriz.push(linhaAtual)
-    }
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        let linhaTexto = " "
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            let numero = matriz[linha][coluna];
-
-            linhaTexto += numero + " "
-
-            soma += matriz[linha][coluna]
-
-
-        }
-        somaTotal += soma
-        res.innerHTML += linhaTexto + " " + "A soma total dos números é: " + soma + "<br>"
-        soma = 0
-    }
-    res.innerHTML += `e a soma total é ${somaTotal}`
-})
-
-const exercicio03 = botao03.addEventListener('click', () => {
-
-    limparDiv()
-
-    /*Crie um programa que leia uma matriz 3x3 de números inteiros e exiba a soma dos elementos da diagonal principal. */
-
-    let matriz = []
-    let totalLinhas = 3
-    let totalColunas = 3
-    let soma = 0
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        let linhaAtual = []
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            let numero = parseInt(prompt(`Digite o número da linha ${linha} e da coluna ${coluna}: `))
-
-            linhaAtual.push(numero)
-
-        }
-        matriz.push(linhaAtual)
-    }
-
-
-    for (let somaColuna = 0; somaColuna < totalColunas; somaColuna++) {
-
-        soma += matriz[somaColuna][somaColuna]
-
-    }
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            res.innerHTML += matriz[linha][coluna] + " "
-
-        }
-
-        res.innerHTML += "<br>"
-
-    }
-
-    res.innerHTML += `A soma dos elementos da diagonal é ${soma}`
-
-})
-
-const exercicio04 = botao04.addEventListener('click', () => {
-
-    limparDiv()
-
-    /* Faça um programa que leia duas matrizes 2x2 de números inteiros e exiba a soma das duas matrizes.*/
-
-    let matrizTotal = []
-    let matriz01 = []
-    let matriz02 = []
-    let totalLinhas = 2
-    let totalColunas = 2
-    let soma = 0
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        let linhaAtual = []
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            let numero = parseInt(prompt(`Digite o número da linha ${linha} e da coluna ${coluna}: `))
-
-            linhaAtual.push(numero)
-
-        }
-
-        matriz01.push(linhaAtual)
-
-    }
-
-    alert(matriz01)
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        let linhaAtual = []
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            let numero = parseInt(prompt(`Digite o número da linha ${linha} e da coluna ${coluna}: `))
-
-            linhaAtual.push(numero)
-
-        }
-
-        matriz02.push(linhaAtual)
-
-    }
-    alert(matriz02)
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        let linhaResultadoSoma = []
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            soma = matriz01[linha][coluna] + matriz02[linha][coluna]
-
-            linhaResultadoSoma.push(soma)
-
-        }
-        matrizTotal.push(linhaResultadoSoma)
-    }
-
-    res.innerHTML = `A soma das duas matrizes é ${matrizTotal}`
-
-})
-
-const exercicio05 = botao05.addEventListener('click', () => {
-
-    limparDiv()
-
-    /* Escreva um programa que leia uma matriz 3x3 de números inteiros e exiba o maior valor presente na matriz. */
-
-    let matriz = []
-    let totalLinhas = 3
-    let totalColunas = 3
-    let numeroMaior = 0
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        let linhaAtual = []
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            let numero = parseInt(prompt(`Digite o número da linha ${linha} e da coluna ${coluna}`))
-
-            linhaAtual.push(numero)
-
-        }
-
-        matriz.push(linhaAtual)
-
-    }
-
-
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            if (linha == 0 && coluna == 0) {
-                numeroMaior = matriz[0][0]
-            }
-
-            else if (matriz[linha][coluna] > numeroMaior) {
-                numeroMaior = matriz[linha][coluna]
-            }
-
+    for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < 2; j++) {
+            soma += Number(prompt(`Matriz[${i}][${j}]:`));
         }
     }
 
-    res.innerHTML = numeroMaior
+    console.log("Soma =", soma);
 
+}
+btnEx02.addEventListener('click', ex02)
 
-})
+function ex03() {
+    let matriz = [];
+    let soma = 0;
 
-const exercicio06 = botao06.addEventListener('click', () => {
-
-    limparDiv()
-
-    /* Crie um programa que leia uma matriz 4x4 de números inteiros e exiba a média aritmética dos elementos. */
-
-    let matriz = []
-    let totaLinhas = 4
-    let totalColunas = 4
-    let contadoraMedia = 0
-    let soma = 0
-    let media = 0
-
-    for (let linha = 0; linha < totaLinhas; linha++) {
-
-        let linhaAtual = []
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            let numero = parseInt(prompt(`Digite o número da linha ${linha} e da coluna ${coluna}: `))
-            contadoraMedia++
-            linhaAtual.push(numero)
-
+    for (let i = 0; i < 3; i++) {
+        matriz[i] = [];
+        for (let j = 0; j < 3; j++) {
+            matriz[i][j] = Number(prompt(`Matriz[${i}][${j}]:`));
+            if (i === j) soma += matriz[i][j];
         }
-        matriz.push(linhaAtual)
     }
 
+    console.log("Soma da diagonal principal =", soma);
 
-    for (let linha = 0; linha < totaLinhas; linha++) {
+}
+btnEx03.addEventListener('click', ex03)
 
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
+function ex04() {
+    let A = [], B = [], C = [];
 
-            soma += matriz[linha][coluna]
-
+    for (let i = 0; i < 2; i++) {
+        A[i] = [];
+        B[i] = [];
+        C[i] = [];
+        for (let j = 0; j < 2; j++) {
+            A[i][j] = Number(prompt(`A[${i}][${j}]:`));
+            B[i][j] = Number(prompt(`B[${i}][${j}]:`));
+            C[i][j] = A[i][j] + B[i][j];
         }
-
     }
 
-    alert(soma)
-    alert(contadoraMedia)
+    console.log("Soma das matrizes:");
+    console.log(C);
 
-    media = soma / contadoraMedia
+}
+btnEx04.addEventListener('click', ex04)
 
-    res.innerHTML = media
-})
+function ex05() {
+    let maior = -Infinity;
 
-const exercicio07 = botao07.addEventListener('click', () => {
-
-    limparDiv()
-
-    /* Faça um programa que leia duas matrizes 2x2 de números inteiros e exiba o produto entre elas.*/
-
-    let matriz01 = []
-    let matriz02 = []
-    let matrizProduto = []
-    let totalColunas = 2
-    let totalLinhas = 2
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        let linhaAtual = []
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            let numero = parseInt(prompt("Digite seu número: "))
-
-            linhaAtual.push(numero)
-
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            let n = Number(prompt(`Matriz[${i}][${j}]:`));
+            if (n > maior) maior = n;
         }
-
-        matriz01.push(linhaAtual)
-
     }
 
-    for (let linha = 0; linha < totalLinhas; linha++) {
+    console.log("Maior valor =", maior);
 
-        let linhaAtual = []
+}
+btnEx05.addEventListener('click', ex05)
 
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
+function ex06() {
+    const matriz = [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 10, 11, 12],
+        [13, 14, 15, 16]
+    ];
 
-            let numero = parseInt(prompt("Digite seu número: "))
+    let soma = 0;
+    let total = 0;
 
-            linhaAtual.push(numero)
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+            soma += matriz[i][j];
+            total++;
         }
-
-        matriz02.push(linhaAtual)
     }
 
-    for (let linha = 0; linha < totalLinhas; linha++) {
+    console.log("Média =", soma / total);
 
-        let linhaResultado = []
+}
+btnEx06.addEventListener('click', ex06)
 
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
+function ex07() {
+    const A = [
+        [1, 2],
+        [3, 4]
+    ];
 
-            let soma = 0
+    const B = [
+        [5, 6],
+        [7, 8]
+    ];
 
-            for (let k = 0; k < totalLinhas; k++) {
+    const produto = [
+        [0, 0],
+        [0, 0]
+    ];
 
-
-                soma += matriz01[linha][k] * matriz02[k][coluna]
-            }
-
-            linhaResultado.push(soma)
+    for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < 2; j++) {
+            produto[i][j] = A[i][0] * B[0][j] + A[i][1] * B[1][j];
         }
-
-        matrizProduto.push(linhaResultado)
     }
 
-    res.innerHTML = "O produto das matrizes é:<br>"
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaTexto = ""
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            linhaTexto += matrizProduto[linha][coluna] + " "
+    console.log("Produto =");
+    console.table(produto);
+
+}
+btnEx07.addEventListener('click', ex07)
+
+function ex08() {
+    const matriz = [
+        [3, 8, 1],
+        [9, 2, 7],
+        [4, 6, 5]
+    ];
+
+    let menor = matriz[0][0];
+
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (matriz[i][j] < menor) menor = matriz[i][j];
         }
-        res.innerHTML += linhaTexto + "<br>"
     }
 
-})
+    console.log("Menor valor =", menor);
 
-const exercicio08 = botao08.addEventListener('click', () => {
+}
+btnEx08.addEventListener('click', ex08)
 
-    limparDiv()
+function ex09() {
+    const matriz = [
+        [1, 2, 3],
+        [2, 4, 5],
+        [3, 5, 6]
+    ];
 
-    /* Escreva um programa que leia uma matriz 3x3 de números inteiros e exiba o menor valor presente na matriz.*/
+    let simetrica = true;
 
-    let matriz = []
-    let totalLinhas = 3
-    let totalColunas = 3
-    let numeroMenor = 0
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        let linhaAtual = []
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            let numero = parseInt(prompt(`Digite o número da linha ${linha} e da coluna ${coluna}: `))
-
-            linhaAtual.push(numero)
-
-        }
-
-        matriz.push(linhaAtual)
-
-    }
-
-    numeroMenor = matriz[0][0]
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            if (numeroMenor > matriz[linha][coluna]) {
-                numeroMenor = matriz[linha][coluna]
-            }
-
-        }
-
-    }
-
-    res.innerHTML = `O número menor da matriz ${matriz} é ${numeroMenor}`
-
-
-})
-
-const exercicio09 = botao09.addEventListener('click', () => {
-
-    limparDiv()
-
-    /* Crie um programa que leia uma matriz 3x3 de números inteiros e verifique se ela é simétrica (igual à sua transposta).*/
-
-    let matriz = []
-    let totalLinhas = 3
-    let totalColunas = 3
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        let linhaAtual = []
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            let numero = parseInt(prompt(`Digite o número da linha ${linha} e da coluna ${coluna}: `))
-
-            linhaAtual.push(numero)
-        }
-
-        matriz.push(linhaAtual)
-
-    }
-
-
-    let simetrica = true
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-
-            if (matriz[linha][coluna] !== matriz[coluna][linha]) {
-                simetrica = false
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (matriz[i][j] !== matriz[j][i]) {
+                simetrica = false;
                 break;
             }
         }
-        if (!simetrica) {
-            break
+    }
+
+    console.log(simetrica ? "É simétrica" : "Não é simétrica");
+
+}
+btnEx09.addEventListener('click', ex09)
+
+function ex10() {
+    const matriz = [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 10, 11, 12],
+        [13, 14, 15, 16]
+    ];
+
+    const somaColunas = [0, 0, 0, 0];
+
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+            somaColunas[j] += matriz[i][j];
         }
     }
 
-    if (simetrica) {
-        res.innerHTML += "<br>A matriz **É** simétrica."
-    } else {
-        res.innerHTML += "<br>A matriz **NÃO** é simétrica."
-    }
+    console.log("Soma das colunas =", somaColunas);
 
-})
+}
+btnEx10.addEventListener('click', ex10)
 
-const exercicio10 = botao10.addEventListener('click', () => {
+function ex11() {
+    const A = [
+        [1, 2],
+        [3, 4]
+    ];
 
-    limparDiv()
+    const B = [
+        [1, 2],
+        [3, 4]
+    ];
 
-    /* Faça um programa que leia uma matriz 4x4 de números inteiros 
-       e exiba a soma dos elementos de cada coluna. */
+    let iguais = true;
 
-    let matriz = []
-    const totalLinhas = 4
-    const totalColunas = 4
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaAtual = []
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            let numero = parseInt(prompt(`Digite o valor para [Linha ${linha}][Coluna ${coluna}]:`))
-            linhaAtual.push(numero)
+    for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < 2; j++) {
+            if (A[i][j] !== B[i][j]) iguais = false;
         }
-        matriz.push(linhaAtual)
     }
 
-    res.innerHTML = "Matriz Digitada:<br>"
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaTexto = ""
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            linhaTexto += matriz[linha][coluna] + " "
+    console.log(iguais ? "São iguais" : "São diferentes");
+
+}
+btnEx11.addEventListener('click', ex11)
+
+function ex12() {
+    const matriz = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+
+    let produto = 1;
+
+    for (let i = 0; i < 3; i++) {
+        produto *= matriz[i][2 - i];
+    }
+
+    console.log("Produto da diagonal secundária =", produto);
+
+}
+btnEx12.addEventListener('click', ex12)
+
+function ex13() {
+    const matriz = [
+        [1, 7, 3, 4],
+        [5, 2, 8, 1],
+        [9, 10, 11, 6],
+        [3, 14, 5, 2]
+    ];
+
+    const maiores = [];
+
+    for (let i = 0; i < 4; i++) {
+        let maior = matriz[i][0];
+        for (let j = 1; j < 4; j++) {
+            if (matriz[i][j] > maior) maior = matriz[i][j];
         }
-        res.innerHTML += linhaTexto + "<br>"
-    }
-    res.innerHTML += "<br>--- Somas das Colunas ---<br>"
-
-    for (let coluna = 0; coluna < totalColunas; coluna++) {
-        
-        let somaDaColuna = 0
-
-        for (let linha = 0; linha < totalLinhas; linha++) {
-            
-            somaDaColuna += matriz[linha][coluna]
-        }
-
-        res.innerHTML += `Soma da Coluna ${coluna}: ${somaDaColuna}<br>`
-    }
-})
-
-const exercicio11 = botao11.addEventListener('click', () => {
-
-    limparDiv();
-
-    /* Escreva um programa que leia duas matrizes 2x2 de números inteiros 
-       e verifique se elas são iguais. */
-
-    let matrizA = [];
-    let matrizB = [];
-    const totalLinhas = 2;
-    const totalColunas = 2;
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaAtual = [];
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            let num = parseInt(prompt(`Matriz A [${linha}][${coluna}]: `));
-            linhaAtual.push(num);
-        }
-        matrizA.push(linhaAtual);
+        maiores.push(maior);
     }
 
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaAtual = [];
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            let num = parseInt(prompt(`Matriz B [${linha}][${coluna}]: `));
-            linhaAtual.push(num);
-        }
-        matrizB.push(linhaAtual);
-    }
+    console.log("Maior valor de cada linha =", maiores);
 
-    let saoIguais = true; 
+}
+btnEx13.addEventListener('click', ex13)
 
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            
-            if (matrizA[linha][coluna] !== matrizB[linha][coluna]) {
-                
-                saoIguais = false;
-                break; 
+function ex14() {
+    const matriz = [
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1]
+    ];
+
+    let identidade = true;
+
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if ((i === j && matriz[i][j] !== 1) ||
+                (i !== j && matriz[i][j] !== 0)) {
+                identidade = false;
             }
         }
-        
-        if (!saoIguais) {
-            break;
+    }
+
+    console.log(identidade ? "É identidade" : "Não é identidade");
+
+}
+btnEx14.addEventListener('click', ex14)
+
+function ex15() {
+    const A = [
+        [5, 7],
+        [9, 4]
+    ];
+
+    const B = [
+        [1, 2],
+        [3, 1]
+    ];
+
+    const sub = [
+        [0, 0],
+        [0, 0]
+    ];
+
+    for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < 2; j++) {
+            sub[i][j] = A[i][j] - B[i][j];
         }
     }
 
-    for (let l = 0; l < totalLinhas; l++) {
-        res.innerHTML += matrizA[l].join(' ') + "<br>";
-    }
+    console.log("Subtração =");
+    console.table(sub);
 
-    for (let l = 0; l < totalLinhas; l++) {
-        res.innerHTML += matrizB[l].join(' ') + "<br>";
-    }
-
-    if (saoIguais) {
-        res.innerHTML += "<br>As matrizes **SÃO** iguais.";
-    } else {
-        res.innerHTML += "<br>As matrizes **NÃO** são iguais.";
-    }
-});
-
-const exercicio12 = botao12.addEventListener('click', () => {
-
-    limparDiv();
-
-    /* Crie um programa que leia uma matriz 3x3 de números inteiros 
-       e exiba o produto dos elementos da diagonal secundária. */
-
-    let matriz = [];
-    const totalLinhas = 3;
-    const totalColunas = 3;
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaAtual = [];
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            let numero = parseInt(prompt(`Digite o valor para [Linha ${linha}][Coluna ${coluna}]:`));
-            linhaAtual.push(numero);
-        }
-        matriz.push(linhaAtual);
-    }
-
-    let produto = 1; 
-
-    for (let i = 0; i < totalLinhas; i++) {
-        
-        let coluna = (totalLinhas - 1) - i;
-
-        produto *= matriz[i][coluna]; 
-    }
-
-    for (let l = 0; l < totalLinhas; l++) {
-        res.innerHTML += matriz[l].join(' ') + "<br>";
-    }
-
-    res.innerHTML += `<br>O produto da diagonal secundária é: ${produto}`;
-});
-
-const exercicio13 = botao13.addEventListener('click', () => {
-
-    limparDiv();
-
-    /* Faça um programa que leia uma matriz 4x4 de números inteiros 
-       e exiba o maior valor presente em cada linha. */
-
-    let matriz = [];
-    const totalLinhas = 4;
-    const totalColunas = 4;
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaAtual = [];
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            let numero = parseInt(prompt(`Digite o valor para [Linha ${linha}][Coluna ${coluna}]:`));
-            linhaAtual.push(numero);
-        }
-        matriz.push(linhaAtual);
-    }
-
-    res.innerHTML = "<b>Matriz Digitada:</b><br>";
-    for (let l = 0; l < totalLinhas; l++) {
-        res.innerHTML += matriz[l].join(' ') + "<br>";
-    }
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-
-        let maiorDaLinha = matriz[linha][0];
-
-        for (let coluna = 1; coluna < totalColunas; coluna++) {
-
-            if (matriz[linha][coluna] > maiorDaLinha) {
-                maiorDaLinha = matriz[linha][coluna];
-            }
-        }
-        
-        // 3. Exibe o resultado DESSA linha antes de ir para a próxima
-        res.innerHTML += `Maior valor da Linha ${linha}: ${maiorDaLinha}<br>`;
-    }
-});
-
-const exercicio14 = botao14.addEventListener('click', () => {
-
-    limparDiv();
-
-    /* Crie um programa que leia uma matriz 3x3 de números inteiros 
-       e verifique se ela é uma matriz identidade. */
-
-    let matriz = [];
-    const totalLinhas = 3;
-    const totalColunas = 3;
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaAtual = [];
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            let numero = parseInt(prompt(`Digite o valor para [Linha ${linha}][Coluna ${coluna}]:`));
-            linhaAtual.push(numero);
-        }
-        matriz.push(linhaAtual);
-    }
-
-    let ehIdentidade = true; 
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            
-            if (linha === coluna) {
-                if (matriz[linha][coluna] !== 1) {
-                    ehIdentidade = false;
-                }
-            } 
-
-            else {
-
-                if (matriz[linha][coluna] !== 0) {
-                    ehIdentidade = false;
-                }
-            }
-
-
-            if (!ehIdentidade) {
-                break;
-            }
-        }
-
-        if (!ehIdentidade) {
-            break;
-        }
-    }
-
-    for (let l = 0; l < totalLinhas; l++) {
-        res.innerHTML += matriz[l].join(' ') + "<br>";
-    }
-
-    // Exibe o resultado final
-    if (ehIdentidade) {
-        res.innerHTML += "<br>A matriz **É** uma Matriz Identidade.";
-    } else {
-        res.innerHTML += "<br>A matriz **NÃO** é uma Matriz Identidade.";
-    }
-});
-
-const exercicio15 = botao15.addEventListener('click', () => {
-
-    limparDiv();
-
-    /* Crie um programa que leia duas matrizes 2x2 de números inteiros 
-       e exiba a subtração entre elas. */
-
-    let matrizA = [];
-    let matrizB = [];
-    let matrizResultado = [];
-    const totalLinhas = 2;
-    const totalColunas = 2;
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaAtual = [];
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            let num = parseInt(prompt(`Matriz A [${linha}][${coluna}]: `));
-            linhaAtual.push(num);
-        }
-        matrizA.push(linhaAtual);
-    }
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaAtual = [];
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            let num = parseInt(prompt(`Matriz B [${linha}][${coluna}]: `));
-            linhaAtual.push(num);
-        }
-        matrizB.push(linhaAtual);
-    }
-
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaResultado = [];
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            
-            let subtracao = matrizA[linha][coluna] - matrizB[linha][coluna];
-            
-            linhaResultado.push(subtracao);
-        }
-        matrizResultado.push(linhaResultado);
-    }
-
-
-    res.innerHTML = "<b>Matriz Resultado (A - B):</b><br>";
-    for (let linha = 0; linha < totalLinhas; linha++) {
-        let linhaTexto = "";
-        for (let coluna = 0; coluna < totalColunas; coluna++) {
-            linhaTexto += matrizResultado[linha][coluna] + " ";
-        }
-        res.innerHTML += linhaTexto + "<br>";
-    }
-
-})
-
-
-
+}
+btnEx15.addEventListener('click', ex15)
