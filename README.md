@@ -19,5 +19,4 @@ Série de exercícios com matrizes (arrays bidimensionais) em JavaScript, explor
 ## 👨‍💻 Autor
 
 **Eder Daniel Vieira da Silva**  
-[LinkedIn](https://linkedin.com/in/eder-daniel44/) • [GitHub](https://github.com/eder64ghjhj)# Lista-07
-Uma lista de exercícios estrutura de dados matriz
+[LinkedIn](https://linkedin.com/in/eder-daniel44/) • [GitHub](https://github.com/eder64ghjhj)
